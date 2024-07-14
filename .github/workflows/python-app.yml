@@ -1,8 +1,17 @@
-name: hello-world
-on: push
+name: Octo Organization CI
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo Hello from Octo Organization
